@@ -7,7 +7,7 @@ RUN mkdir -p /etc/pki/nginx/private \
  && openssl req -new -newkey rsa:${TLS_KEY_LENGTH} -days 3650 -nodes -x509 \
     -subj "/C=US/ST=Denial/L=Springfield/O=server/CN=server.dev" \
     -keyout /etc/pki/nginx/private/server.key  -out /etc/pki/nginx/server.crt \
- && openssl dhparam -out /etc/pki/nginx/private/sn.pem ${TLS_KEY_LENGTH}
+ && openssl dhparam -out /etc/pki/nginx/private/dhparam.pem ${TLS_KEY_LENGTH}
 
 RUN mkdir /app
 WORKDIR /app
